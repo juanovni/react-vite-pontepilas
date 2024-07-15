@@ -1,6 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addComment, getComments } from "./redux/comments/actions";
+import { addComment } from "./redux/comments/actions";
 import {
   Table,
   TableHeader,
@@ -20,12 +20,10 @@ function App() {
       completed: false,
       description: "This is a task",
     };
-    //dispatch(getComments());
-
     if (comments) {
       dispatch(
         addComment(data, () => {
-          //dispatch(getComments());
+          alert("The comment has been saved.");
         })
       );
     }
@@ -33,7 +31,7 @@ function App() {
   return (
     <>
       <h2>
-        <button onClick={handleAddComment}>Added Listado</button> Hola
+        <button onClick={handleAddComment}>Added Listado</button>
       </h2>
       <Table aria-label="Example static collection table">
         <TableHeader>
